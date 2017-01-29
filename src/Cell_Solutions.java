@@ -1,20 +1,65 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+January 28th, 2017
+Joshua Pickenpaugh
+Unit 3 Assignments: Cell Solutions (FORM CLASS).
  */
 
-/**
- *
- * @author Joshua
- */
+import java.text.DecimalFormat;
+import javax.swing.ButtonGroup;
+
 public class Cell_Solutions extends javax.swing.JFrame {
+    
+        //Declare the global variables:
+        Double selectedPlan = 0.0;
+        final Double plan1 = 45.00;
+        final Double plan2 = 65.00;
+        final Double plan3 = 99.00;
+        
+        final Double salesTax = .06;
+        
+        Double selectedModel = 0.0;
+        final Double modell00 = 29.95;
+        final Double modell10 = 49.95;
+        final Double model200 = 99.95;
+        
+        Double selectedVoiceMail = 0.0;
+        final Double voiceMail = 5.00;
+        
+        Double selectedTextMessage = 0.0;
+        final Double textMessage = 10.00;
+        
+        Double TOTAL;
+        String sTOTAL;
+        
+        //Instantiates object to handle TOTAL format:
+        DecimalFormat dc = new DecimalFormat("$0.00"); 
 
     /**
      * Creates new form Cell_Solutions
      */
     public Cell_Solutions() {
         initComponents();
+        
+        //Group the buttons into one button group, which allows for only 
+        //one button to be selected in a group:
+        ButtonGroup group1 = new ButtonGroup();
+        group1.add(btnPlanOne);
+        group1.add(btnPlanTwo);
+        group1.add(btnPlanThree);
+        
+        ButtonGroup group2 = new ButtonGroup();
+        group2.add(btnModel100);
+        group2.add(btnModel110);
+        group2.add(btnModel200);   
+        
+        ButtonGroup group3 = new ButtonGroup();
+        group3.add(btnVoxMail);
+        group3.add(btnNOVoxMail);
+        
+        ButtonGroup group4 = new ButtonGroup();
+        group4.add(btnTextMes);
+        group4.add(btnNOTextMessage);
+        
     }
 
     /**
@@ -26,22 +71,475 @@ public class Cell_Solutions extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnPlanOne = new javax.swing.JRadioButton();
+        btnPlanTwo = new javax.swing.JRadioButton();
+        btnPlanThree = new javax.swing.JRadioButton();
+        txtPlanOnePrice = new javax.swing.JTextField();
+        txtPlanTwoPrice = new javax.swing.JTextField();
+        txtPlanThreePrice = new javax.swing.JTextField();
+        btnCalc = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnModel100 = new javax.swing.JRadioButton();
+        txtModel100Price = new javax.swing.JTextField();
+        btnModel110 = new javax.swing.JRadioButton();
+        txtModel110Price = new javax.swing.JTextField();
+        btnModel200 = new javax.swing.JRadioButton();
+        txtModel200Price = new javax.swing.JTextField();
+        txtTOTAL = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        btnNOVoxMail = new javax.swing.JRadioButton();
+        btnVoxMail = new javax.swing.JRadioButton();
+        txtVoxMailPrice = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        btnNOTextMessage = new javax.swing.JRadioButton();
+        btnTextMes = new javax.swing.JRadioButton();
+        txtTextMessPrice = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnPlanOne.setText("Plan 1: 300 minutes ");
+        btnPlanOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlanOneActionPerformed(evt);
+            }
+        });
+
+        btnPlanTwo.setText("Plan 2: 800 minutes");
+        btnPlanTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlanTwoActionPerformed(evt);
+            }
+        });
+
+        btnPlanThree.setText("Plan 3: 1500 minutes");
+        btnPlanThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlanThreeActionPerformed(evt);
+            }
+        });
+
+        txtPlanOnePrice.setEditable(false);
+        txtPlanOnePrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtPlanTwoPrice.setEditable(false);
+        txtPlanTwoPrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtPlanThreePrice.setEditable(false);
+        txtPlanThreePrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPlanTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPlanThree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPlanOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPlanOnePrice)
+                    .addComponent(txtPlanTwoPrice)
+                    .addComponent(txtPlanThreePrice))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnPlanOne)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPlanOnePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPlanTwo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPlanTwoPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPlanThree)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPlanThreePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnCalc.setText("Calculate");
+        btnCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnModel100.setText("Model 100");
+        btnModel100.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModel100ActionPerformed(evt);
+            }
+        });
+
+        txtModel100Price.setEditable(false);
+        txtModel100Price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnModel110.setText("Model 110");
+        btnModel110.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModel110ActionPerformed(evt);
+            }
+        });
+
+        txtModel110Price.setEditable(false);
+        txtModel110Price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnModel200.setText("Model 200");
+        btnModel200.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModel200ActionPerformed(evt);
+            }
+        });
+
+        txtModel200Price.setEditable(false);
+        txtModel200Price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnModel200)
+                    .addComponent(btnModel110)
+                    .addComponent(btnModel100)
+                    .addComponent(txtModel200Price, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                    .addComponent(txtModel110Price)
+                    .addComponent(txtModel100Price))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnModel100)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtModel100Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnModel110)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtModel110Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnModel200)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtModel200Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        txtTOTAL.setEditable(false);
+        txtTOTAL.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtTOTAL.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnNOVoxMail.setText("NO Voice Mail");
+        btnNOVoxMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNOVoxMailActionPerformed(evt);
+            }
+        });
+
+        btnVoxMail.setText("Voice Mail");
+        btnVoxMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoxMailActionPerformed(evt);
+            }
+        });
+
+        txtVoxMailPrice.setEditable(false);
+        txtVoxMailPrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoxMail, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVoxMailPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnNOVoxMail)
+                        .addGap(36, 36, 36)))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVoxMail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtVoxMailPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNOVoxMail)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnVoxMail, txtVoxMailPrice});
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnNOTextMessage.setText("NO Text Messaging");
+        btnNOTextMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNOTextMessageActionPerformed(evt);
+            }
+        });
+
+        btnTextMes.setText("Text Messaging");
+        btnTextMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTextMesActionPerformed(evt);
+            }
+        });
+
+        txtTextMessPrice.setEditable(false);
+        txtTextMessPrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnTextMes)
+                    .addComponent(txtTextMessPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNOTextMessage))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnTextMes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTextMessPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNOTextMessage)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCalc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTOTAL, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //btnCalc operations; performs TOTALS on selected items:
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+                
+        Double salesTaxAmount = 0.0;
+        
+        //PLAN BUTTONS selection:
+        if (btnPlanOne.isSelected())
+                        {
+                           selectedPlan = plan1; 
+                        }
+        if (btnPlanTwo.isSelected())
+                        {
+                           selectedPlan = plan2; 
+                        }
+        if (btnPlanThree.isSelected())
+                        {
+                           selectedPlan = plan3; 
+                        }
+        
+        //PHONE BUTTONS selections:
+        if (btnModel100.isSelected())
+                        {
+                           selectedModel = modell00; 
+                        }
+        if (btnModel110.isSelected())
+                        {
+                           selectedModel = modell10; 
+                        }
+        if (btnModel200.isSelected())
+                        {
+                           selectedModel = model200; 
+                        }
+        
+        //ADDITIONAL VOX MAIL AND TEXT MESSAGING CHARGES;
+        if (btnVoxMail.isSelected())
+                        {
+                           selectedVoiceMail = voiceMail;
+                           //txtModel200Price.setText(Double.toString(model200));
+                        }
+        else
+                        {
+                           selectedVoiceMail = 0.0;
+                        }
+        if (btnTextMes.isSelected())
+                        {
+                           selectedTextMessage = textMessage;
+                           //txtModel200Price.setText(Double.toString(model200));
+                        }
+        else
+                        {
+                           selectedTextMessage = 0.0;
+                        }
+        
+        salesTaxAmount = (selectedPlan + selectedModel + selectedVoiceMail + 
+                selectedTextMessage) * salesTax;
+        
+        TOTAL = (selectedPlan + selectedModel + selectedVoiceMail + 
+                selectedTextMessage) + salesTaxAmount;
+        
+        sTOTAL = dc.format(TOTAL);
+        
+        txtTOTAL.setText(sTOTAL);
+        
+    }//GEN-LAST:event_btnCalcActionPerformed
+    
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnPlanOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanOneActionPerformed
+       
+       //Local string variable to hold the plan amount in currency format:
+       String sPlan1 = dc.format(plan1); 
+        
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtPlanOnePrice.setText(sPlan1);    
+       txtPlanTwoPrice.setText("");
+       txtPlanThreePrice.setText("");
+    }//GEN-LAST:event_btnPlanOneActionPerformed
+   
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnPlanTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanTwoActionPerformed
+       
+       //Local string variable to hold the plan amount in currency format:
+       String sPlan2 = dc.format(plan2); 
+       
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtPlanOnePrice.setText("");    
+       txtPlanTwoPrice.setText(sPlan2);
+       txtPlanThreePrice.setText("");
+    }//GEN-LAST:event_btnPlanTwoActionPerformed
+    
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnPlanThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanThreeActionPerformed
+       
+       //Local string variable to hold the plan amount in currency format:
+       String sPlan3 = dc.format(plan3);  
+        
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtPlanOnePrice.setText("");    
+       txtPlanTwoPrice.setText("");
+       txtPlanThreePrice.setText(sPlan3);
+    }//GEN-LAST:event_btnPlanThreeActionPerformed
+
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnModel100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModel100ActionPerformed
+        
+       //Local string variable to hold the phone amount in currency format:
+       String sModel100 = dc.format(modell00); 
+        
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtModel100Price.setText(sModel100);    
+       txtModel110Price.setText("");
+       txtModel200Price.setText("");
+    }//GEN-LAST:event_btnModel100ActionPerformed
+
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnModel110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModel110ActionPerformed
+               
+       //Local string variable to hold the phone amount in currency format:
+       String sModel110 = dc.format(modell10); 
+        
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtModel100Price.setText("");    
+       txtModel110Price.setText(sModel110);
+       txtModel200Price.setText("");
+    }//GEN-LAST:event_btnModel110ActionPerformed
+
+    // Makes the text in this button's adjoined text box visable: 
+    private void btnModel200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModel200ActionPerformed
+               
+       //Local string variable to hold the phone amount in currency format:
+       String sModel200 = dc.format(model200); 
+        
+       //Displays price and clears the other text boxes when this box is 
+       //selected:
+       txtModel100Price.setText("");    
+       txtModel110Price.setText("");
+       txtModel200Price.setText(sModel200);
+    }//GEN-LAST:event_btnModel200ActionPerformed
+    //Makes the text in this button's adjoined text box visable:
+    private void btnVoxMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoxMailActionPerformed
+        
+        //Local string variable to hold the amount in currency format:
+        String sVoxMail = dc.format(voiceMail);
+        
+        //Displays price:
+        txtVoxMailPrice.setText(sVoxMail);
+    }//GEN-LAST:event_btnVoxMailActionPerformed
+
+    //Makes the text in this button's adjoined text box visable:    
+    private void btnTextMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTextMesActionPerformed
+
+        //Local string variable to hold the amount in currency format:
+        String stextMessage = dc.format(textMessage);
+        
+        //Displays price:
+        txtTextMessPrice.setText(stextMessage);
+    }//GEN-LAST:event_btnTextMesActionPerformed
+
+    //Clears the Voice Mail text box:
+    private void btnNOVoxMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNOVoxMailActionPerformed
+        txtVoxMailPrice.setText("");
+    }//GEN-LAST:event_btnNOVoxMailActionPerformed
+
+    //Clears the Text Message text box:
+    private void btnNOTextMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNOTextMessageActionPerformed
+        txtTextMessPrice.setText("");
+    }//GEN-LAST:event_btnNOTextMessageActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -75,8 +573,33 @@ public class Cell_Solutions extends javax.swing.JFrame {
                 new Cell_Solutions().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalc;
+    private javax.swing.JRadioButton btnModel100;
+    private javax.swing.JRadioButton btnModel110;
+    private javax.swing.JRadioButton btnModel200;
+    private javax.swing.JRadioButton btnNOTextMessage;
+    private javax.swing.JRadioButton btnNOVoxMail;
+    private javax.swing.JRadioButton btnPlanOne;
+    private javax.swing.JRadioButton btnPlanThree;
+    private javax.swing.JRadioButton btnPlanTwo;
+    private javax.swing.JRadioButton btnTextMes;
+    private javax.swing.JRadioButton btnVoxMail;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField txtModel100Price;
+    private javax.swing.JTextField txtModel110Price;
+    private javax.swing.JTextField txtModel200Price;
+    private javax.swing.JTextField txtPlanOnePrice;
+    private javax.swing.JTextField txtPlanThreePrice;
+    private javax.swing.JTextField txtPlanTwoPrice;
+    private javax.swing.JTextField txtTOTAL;
+    private javax.swing.JTextField txtTextMessPrice;
+    private javax.swing.JTextField txtVoxMailPrice;
     // End of variables declaration//GEN-END:variables
 }
